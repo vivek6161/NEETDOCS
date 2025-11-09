@@ -1,0 +1,6 @@
+opencv-python-headless
+pytesseract
+Pillow
+google-cloud-storage
+google-cloud-firestore
+nltk

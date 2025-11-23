@@ -58,3 +58,7 @@ COPY --from=builder /app /app
 EXPOSE 8080
 
 CMD ["python3", "-m", "flask", "run", "--port", "8080"]
+import nltk
+nltk.download('punkt')
+nltk.download('punkt_tab')
+nltk.download('stopwords')

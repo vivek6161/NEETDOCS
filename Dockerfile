@@ -38,7 +38,6 @@ ENV PYTHONUNBUFFERED=1
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 ENV PORT=8080
-ENV TZ=Asia/Kolkata
 ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/tessdata
 
 RUN apt-get update && \
@@ -46,6 +45,7 @@ RUN apt-get update && \
         tesseract-ocr \
         tesseract-ocr-eng \
         libglib2.0-0 \
+        libgl1 \
         libstdc++6 \
         libgcc-s1 \
     && rm -rf /var/lib/apt/lists/*

@@ -1,5 +1,16 @@
 # app.py
 import os
+import json
+import tempfile
+
+if "GOOGLE_APPLICATION_CREDENTIALS_JSON" in os.environ:
+    creds_dict = json.loads(os.environ["GOOGLE_APPLICATION_CREDENTIALS_JSON"])
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".json") as tmp:
+        tmp.write(json.dumps(creds_dict).encode())
+        tmp.flush()
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = tmp.name
+
+import os
 import uuid
 import string
 import cv2
@@ -852,4 +863,4 @@ def search_documents_route():
 
 if __name__ == "__main__":
     logging.info("Starting the web server...")
-    app.run(debug=True, port=int(os.environ.get("PORT", 5000)))
+    app.run(debug=True, port=int(os.environ.get("PORT", 5000))) 

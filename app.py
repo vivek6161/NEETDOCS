@@ -1,3 +1,19 @@
+import nltk
+
+try:
+    nltk.data.find("tokenizers/punkt")
+except:
+    nltk.download("punkt")
+
+try:
+    nltk.data.find("tokenizers/punkt_tab")
+except:
+    nltk.download("punkt_tab")
+
+try:
+    nltk.data.find("corpora/stopwords")
+except:
+    nltk.download("stopwords")
 # app.py
 import os
 import json
@@ -864,3 +880,4 @@ def search_documents_route():
 if __name__ == "__main__":
     logging.info("Starting the web server...")
     app.run(debug=True, port=int(os.environ.get("PORT", 5000))) 
+

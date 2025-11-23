@@ -41,7 +41,9 @@ ENV FLASK_RUN_HOST=0.0.0.0
 ENV PORT=8080
 ENV TZ=Asia/Kolkata
 ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/tessdata
-ENV GOOGLE_APPLICATION_CREDENTIALS=/app/service-account.json
+
+# IMPORTANT — NO JSON FILE COPY
+ENV GOOGLE_APPLICATION_CREDENTIALS=/tmp/service-account.json
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -59,14 +61,8 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-# Copy Python libs
 COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
-
-# Copy app code
 COPY --from=builder /app /app
-
-# Copy service account for Firestore
-COPY service-account.json /app/service-account.json
 
 EXPOSE 8080
 

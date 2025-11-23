@@ -58,7 +58,7 @@ FIRESTORE_USERS_COLLECTION = 'neatvision_users'
 UPLOAD_FOLDER = 'temp_uploads'
 
 # Path to your downloaded service account JSON file
-SERVICE_ACCOUNT_FILE = 'service-account.json'
+SERVICE_ACCOUNT_FILE = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
 
 ENABLE_CLOUD_FEATURES = True
 

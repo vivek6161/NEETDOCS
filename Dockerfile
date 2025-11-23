@@ -16,7 +16,6 @@ RUN apt-get update && \
         libjpeg-dev \
         libpng-dev \
         libtiff-dev \
-        libatlas-base-dev \
         gfortran \
         libglib2.0-dev \
     && rm -rf /var/lib/apt/lists/*
@@ -42,7 +41,6 @@ ENV PORT=8080
 ENV TZ=Asia/Kolkata
 ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/tessdata
 
-# ---- FIXED RUNTIME INSTALL ----
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         tesseract-ocr \

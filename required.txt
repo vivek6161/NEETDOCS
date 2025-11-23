@@ -1,6 +1,11 @@
-opencv-python-headless
-pytesseract
+Flask
+opencv-python
+numpy
 Pillow
+pytesseract
 google-cloud-storage
 google-cloud-firestore
+google-auth
 nltk
+Werkzeug
+gunicorn
